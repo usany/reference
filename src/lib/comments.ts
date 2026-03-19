@@ -2,8 +2,7 @@
 
 import { Comment } from '@/types/comment';
 
-// const API_BASE = 'https://express-d1-app.ckd-qja.workers.dev';
-const API_BASE = 'http://localhost:8787';
+const API_BASE = 'https://express-d1-app.ckd-qja.workers.dev';
 
 export async function getComments(slug: string): Promise<Comment[]> {
   try {
