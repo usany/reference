@@ -1,16 +1,7 @@
 import styles from './root.module.css';
 import { getLanguage } from './hooks/useServerTheme';
 
-interface FaqItem {
-  question: string;
-  answer: string;
-}
-
-interface FaqSectionProps {
-  faqItems: FaqItem[];
-}
-
-const translations = {
+export const translations = {
   en: {
     title: 'KHUSAN Instructions',
     subtitle: 'Learn how to use KHUSAN.',
