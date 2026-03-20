@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Umbrella, User2, Users2 } from 'lucide-react';
 import secl from '@/assets/cl.jpeg';
+import FaqSectionServer from './FaqSectionServer';
 const method = <>
             <div>
               쿠우산KHUSAN은 다음의 목적을 위하여 개인정보를 처리합니다.
@@ -163,6 +164,11 @@ export default function RootPage() {
             </div>
           </div>
         </div>
+        <FaqSectionServer faqItems={[
+          { q: translation.faq.q1.question, a: translation.faq.q1.answer },
+          { q: translation.faq.q2.question, a: translation.faq.q2.answer },
+          { q: translation.faq.q3.question, a: translation.faq.q3.answer }
+        ]} />
         <section id="faq" className={styles.faq}>
           <div className={styles.container}>
             <div className={styles.faqList}>

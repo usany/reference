@@ -9,6 +9,7 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import './globals.css';
+import RootPage from './page-server-with-theme';
 
 export const metadata: Metadata = {
   title: 'KHUSAN',
@@ -33,7 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <QueryProvider>
                   <TopBar />
                   <main style={{ paddingTop: '60px' }}>
-                    {children}
+                    <RootPage theme={theme as 'light' | 'dark'} language={language as 'ko' | 'en'} />
                   </main>
                 </QueryProvider>
               </MuiThemeProvider>
