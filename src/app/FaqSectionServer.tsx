@@ -1,8 +1,9 @@
 import styles from './root.module.css';
+import { getLanguage } from './hooks/useServerTheme';
 
 interface FaqItem {
-  q: string;
-  a: string;
+  question: string;
+  answer: string;
 }
 
 interface FaqSectionProps {
@@ -52,7 +53,9 @@ const translations = {
   }
 };
 
-export default function FaqSectionServer({ faqItems }: FaqSectionProps) {
+export default async function FaqSectionServer() {
+  const language = await getLanguage();
+  const faqItems = Object.values(translations[language].faq).filter(item => typeof item === 'object');
   return (
     <section id="faq" className={styles.faq}>
       <div className={styles.container}>
@@ -61,10 +64,10 @@ export default function FaqSectionServer({ faqItems }: FaqSectionProps) {
             <div key={index} className={styles.faqItem}>
               <details className={styles.faqDetails}>
                 <summary className={styles.faqQuestion}>
-                  {item.q}
+                  {item.question}
                 </summary>
                 <div className={styles.faqAnswer}>
-                  {item.a}
+                  {item.answer}
                 </div>
               </details>
             </div>
