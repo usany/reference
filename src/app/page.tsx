@@ -2,16 +2,15 @@
 
 import styles from './root.module.css';
 import { useLanguage } from '@/context/LanguageContext';
-import { LinkItem } from '@/types/links';
 import links from 'links';
-import { Button } from '@mui/material';
 import RainAnimation from '@/components/RainAnimation';
-import { useState } from 'react';
-import Image from 'next/image';
-import { Umbrella, User2, Users2 } from 'lucide-react';
-import secl from '@/assets/cl.jpeg';
 import FaqSectionServer from './FaqSectionServer';
 import { getLanguage } from './hooks/useServerTheme';
+import HeroSection from './components/HeroSection';
+import ButtonGroup from './components/ButtonGroup';
+import HeroVisual from './components/HeroVisual';
+import FaqSection from './components/FaqSection';
+import Footer from './components/Footer';
 const method = <>
             <div>
               쿠우산KHUSAN은 다음의 목적을 위하여 개인정보를 처리합니다.
@@ -117,116 +116,24 @@ const translations = {
 export default async function RootPage() {
   const language = await getLanguage()
   const translation = translations[language];
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+    
+  const faqItems = [
+    { q: translation.faq.q1.question, a: translation.faq.q1.answer },
+    { q: translation.faq.q2.question, a: translation.faq.q2.answer },
+    { q: translation.faq.q3.question, a: translation.faq.q3.answer }
+  ];
     
   return (
     <>
       <RainAnimation />
-      <section className={styles.hero}>
-        <h1 className={styles.title}>{translation.title}</h1>
-        <p className={styles.subtitle}>
-          {translation.subtitle}
-        </p>
-      </section>
-      <div className={`${styles.buttonGroup}`}>
-        {links[language].map((link: LinkItem, index: number) => (
-          <Button key={index} href={link.href} variant='outlined' className={'colorOne'}>
-            <div className={styles.buttonContent}>
-              {link.icon}
-              {link.label}
-            </div>
-          </Button>
-        ))}
-      </div>
+      <HeroSection title={translation.title} subtitle={translation.subtitle} />
+      <ButtonGroup links={links} language={language} />
       <section className={styles.heroContent}>
-        <div className={styles.heroVisual}>
-          <div className={styles.floatingCard}>
-            <div className={styles.cardContent}>
-              <div className={styles.cardHeader}>
-                <Image
-                  src="/favicons.png"
-                  alt="KHUSAN"
-                  width={84}
-                  height={24}
-                />
-                <Image
-                  src={secl}
-                  alt="KHUSAN"
-                  width={84}
-                  height={24}
-                />
-              </div>
-              <div className={styles.cardHeader}>
-                <User2 />
-                <Umbrella />
-                <Users2 />
-              </div>
-            </div>
-          </div>
-        </div>
-        <FaqSectionServer faqItems={[
-          { q: translation.faq.q1.question, a: translation.faq.q1.answer },
-          { q: translation.faq.q2.question, a: translation.faq.q2.answer },
-          { q: translation.faq.q3.question, a: translation.faq.q3.answer }
-        ]} />
-        <section id="faq" className={styles.faq}>
-          <div className={styles.container}>
-            <div className={styles.faqList}>
-              {[
-                { q: translation.faq.q1.question, a: translation.faq.q1.answer },
-                { q: translation.faq.q2.question, a: translation.faq.q2.answer },
-                { q: translation.faq.q3.question, a: translation.faq.q3.answer }
-              ].map((item, index) => (
-                <div key={index} className={styles.faqItem}>
-                  <button 
-                    className={styles.faqQuestion}
-                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  >
-                    {item.q}
-                    <span className={`${styles.faqIcon} ${expandedFaq === index ? styles.expanded : ''}`}></span>
-                  </button>
-                  <div className={`${styles.faqAnswer} ${expandedFaq === index ? styles.open : ''}`}>
-                    {item.a}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <HeroVisual />
+        <FaqSectionServer faqItems={faqItems} />
+        <FaqSection faqItems={faqItems} />
       </section>
-      
-      {/* Footer */}
-      <footer>
-        <div className={styles.footerBottom}>
-          <p>&copy; 2026 KHUSAN.</p>
-          <button 
-            className={styles.privacyLink}
-            onClick={() => setShowPrivacyModal(true)} 
-          >
-            {translation.policy}
-          </button>
-        </div>
-      </footer>
-      
-      {showPrivacyModal && (
-        <div className={styles.modalOverlay} onClick={() => setShowPrivacyModal(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.modalHeader}>
-              <h2>{translation.policy}</h2>
-              <button 
-                className={styles.closeButton}
-                onClick={() => setShowPrivacyModal(false)}
-              >
-                x
-              </button>
-            </div>
-            <div className={styles.modalBody}>
-              {method}
-            </div>
-          </div>
-        </div>
-      )}
+      <Footer policyText={translation.policy} privacyContent={method} />
     </>
   );
 }
