@@ -1,14 +1,15 @@
+import { Language } from '@/context/LanguageContext';
+import { Theme } from '@/context/ThemeContext';
 import { cookies } from 'next/headers';
 
 export async function getTheme() {
   const cookieStore = await cookies();
-  return cookieStore.get('theme')?.value || 'light';
+  return cookieStore.get('theme')?.value || 'light' as Theme;
 }
 
-export async function getLanguage(): Promise<'ko' | 'en'> {
+export async function getLanguage() {
   const cookieStore = await cookies();
-  const language = cookieStore.get('language')?.value || 'ko';
-  return language as 'ko' | 'en';
+  return cookieStore.get('language')?.value || 'ko' as Language;
 }
 
 export async function getCookies() {

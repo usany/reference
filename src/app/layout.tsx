@@ -8,9 +8,9 @@ import QueryProvider from '@/components/QueryProvider';
 import Script from 'next/script';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
-import './globals.css';
 import RootPage from './page-server-with-theme';
 import { getCookies } from './hooks/useServerTheme';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'KHUSAN',
