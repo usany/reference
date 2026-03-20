@@ -6,7 +6,7 @@ import { LinkItem } from '@/types/links';
 import links from 'links';
 import { Button } from '@mui/material';
 import RainAnimation from '@/components/RainAnimation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Umbrella, User2, Users2 } from 'lucide-react';
 import secl from '@/assets/cl.jpeg';
@@ -160,15 +160,11 @@ export default function RootPage() {
                 <Umbrella />
                 <Users2 />
               </div>
-              {/* <div className={styles.cardLine}></div>
-              <div className={styles.cardLine}></div>
-              <div className={styles.cardLine}></div> */}
             </div>
           </div>
         </div>
         <section id="faq" className={styles.faq}>
           <div className={styles.container}>
-            {/* <h2 className={styles.sectionTitle}>{translation.faq.title}</h2> */}
             <div className={styles.faqList}>
               {[
                 { q: translation.faq.q1.question, a: translation.faq.q1.answer },
