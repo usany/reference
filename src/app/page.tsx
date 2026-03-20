@@ -127,8 +127,8 @@ export default async function RootPage() {
       <ButtonGroup links={links} language={language} />
       <section className={styles.heroContent}>
         <HeroVisual />
-        <FaqSectionServer faqItems={faqItems} />
-        <FaqSection faqItems={faqItems} />
+        <FaqSectionServer />
+        {/* <FaqSection faqItems={faqItems} /> */}
       </section>
       <Footer policyText={translation.policy} privacyContent={method} />
     </>
