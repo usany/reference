@@ -4,7 +4,7 @@ import { LanguageProvider } from '@/app/context/LanguageContext';
 import { ThemeProvider } from '@/app/context/ThemeContext';
 import MuiThemeProvider from '@/components/MuiThemeProvider';
 import QueryProvider from '@/components/QueryProvider';
-import RainAnimation from '@/components/RainAnimation';
+// import RainAnimation from '@/components/RainAnimation';
 import Script from 'next/script';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
