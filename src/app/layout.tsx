@@ -10,6 +10,7 @@ import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import './globals.css';
 import RootPage from './page-server-with-theme';
+import { getCookies } from './hooks/useServerTheme';
 
 export const metadata: Metadata = {
   title: 'KHUSAN',
@@ -20,10 +21,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies();
-  const theme = cookieStore.get('theme')?.value || 'light';
-  const language = cookieStore.get('language')?.value || 'ko';
-
+  const {theme, language} = await getCookies();
   return (
     <html lang={language} className={theme} data-theme={theme}>
       <body>
@@ -34,7 +32,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <QueryProvider>
                   <TopBar />
                   <main style={{ paddingTop: '60px' }}>
-                    <RootPage theme={theme as 'light' | 'dark'} language={language as 'ko' | 'en'} />
+                    {children}
                   </main>
                 </QueryProvider>
               </MuiThemeProvider>
