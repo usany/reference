@@ -8,7 +8,7 @@ import ButtonGroup from './components/ButtonGroup';
 import HeroVisual from './components/HeroVisual';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
-const method = <>
+export const method = <>
             <div>
               쿠우산KHUSAN은 다음의 목적을 위하여 개인정보를 처리합니다.
               처리하고 있는 개인정보는 다음의 목적 외의 용도로는 이용되지
@@ -67,7 +67,7 @@ const method = <>
               할 수 있습니다.
             </div>
           </>
-const translations = {
+export const translations = {
   en: {
     title: 'KHUSAN Instructions',
     subtitle: 'Learn how to use KHUSAN.',
