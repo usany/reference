@@ -6,8 +6,8 @@ import { getLanguage } from './hooks/useServerTheme';
 import HeroSection from './components/HeroSection';
 import ButtonGroup from './components/ButtonGroup';
 import HeroVisual from './components/HeroVisual';
-import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
+// import FaqSection from './components/FaqSection';
 export const method = <>
             <div>
               쿠우산KHUSAN은 다음의 목적을 위하여 개인정보를 처리합니다.
@@ -114,11 +114,11 @@ export default async function RootPage() {
   const language = await getLanguage()
   const translation = translations[language];
     
-  const faqItems = [
-    { q: translation.faq.q1.question, a: translation.faq.q1.answer },
-    { q: translation.faq.q2.question, a: translation.faq.q2.answer },
-    { q: translation.faq.q3.question, a: translation.faq.q3.answer }
-  ];
+  // const faqItems = [
+  //   { q: translation.faq.q1.question, a: translation.faq.q1.answer },
+  //   { q: translation.faq.q2.question, a: translation.faq.q2.answer },
+  //   { q: translation.faq.q3.question, a: translation.faq.q3.answer }
+  // ];
     
   return (
     <>
