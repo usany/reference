@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { Umbrella, User2, Users2 } from 'lucide-react';
 import secl from '@/assets/cl.jpeg';
 import FaqSectionServer from './FaqSectionServer';
+import { getLanguage } from './hooks/useServerTheme';
 const method = <>
             <div>
               쿠우산KHUSAN은 다음의 목적을 위하여 개인정보를 처리합니다.
@@ -113,8 +114,8 @@ const translations = {
   }
 };
 
-export default function RootPage() {
-  const { language } = useLanguage();
+export default async function RootPage() {
+  const language = await getLanguage()
   const translation = translations[language];
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);

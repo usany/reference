@@ -5,9 +5,10 @@ export async function getTheme() {
   return cookieStore.get('theme')?.value || 'light';
 }
 
-export async function getLanguage() {
+export async function getLanguage(): Promise<'ko' | 'en'> {
   const cookieStore = await cookies();
-  return cookieStore.get('language')?.value || 'ko';
+  const language = cookieStore.get('language')?.value || 'ko';
+  return language as 'ko' | 'en';
 }
 
 export async function getCookies() {
