@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const {theme, language} = await getCookies();
+  const { theme, language } = await getCookies();
   return (
     <html lang={language} className={theme} data-theme={theme}>
       <body>
