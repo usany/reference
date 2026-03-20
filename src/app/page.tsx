@@ -1,7 +1,4 @@
-'use client';
-
 import styles from './root.module.css';
-import { useLanguage } from '@/context/LanguageContext';
 import links from 'links';
 import RainAnimation from '@/components/RainAnimation';
 import FaqSectionServer from './FaqSectionServer';
