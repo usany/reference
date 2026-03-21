@@ -1,11 +1,5 @@
-import styles from '../root.module.css';
-import links from 'links';
-import RainAnimation from '@/components/RainAnimation';
-import FaqSectionServer from '../FaqSectionServer';
-import HeroSection from '../components/HeroSection';
-import ButtonGroup from '../components/ButtonGroup';
-import HeroVisual from '../components/HeroVisual';
-import Footer from '../components/Footer';
+import HomePage from '@/components/shared/HomePage';
+import { Translation } from '@/types/page';
 
 const method = <>
             <div>
@@ -67,7 +61,7 @@ const method = <>
             </div>
           </>;
 
-const translation = {
+const translation: Translation = {
   title: 'KHUSAN Instructions',
   subtitle: 'Learn how to use KHUSAN.',
   faq: {
@@ -90,15 +84,10 @@ const translation = {
 
 export default async function EnglishPage() {
   return (
-    <>
-      <RainAnimation />
-      <HeroSection title={translation.title} subtitle={translation.subtitle} />
-      <ButtonGroup links={links} language="en" />
-      <section className={styles.heroContent}>
-        <HeroVisual />
-        <FaqSectionServer />
-      </section>
-      <Footer policyText={translation.policy} privacyContent={method} />
-    </>
+    <HomePage 
+      translation={translation}
+      language="en"
+      privacyContent={method}
+    />
   );
 }
