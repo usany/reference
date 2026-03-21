@@ -8,7 +8,7 @@ import ButtonGroup from '../components/ButtonGroup';
 import HeroVisual from '../components/HeroVisual';
 import Footer from '../components/Footer';
 
-const translations: Record<string, Translation> = {
+export const translations: Record<string, Translation> = {
   ko: {
     title: '쿠우산 설명서',
     subtitle: '쿠우산 사용법을 알아보세요.',
