@@ -58,9 +58,7 @@ export default async function LanguagePage({ params }: { params: { lang: string 
   if (!translations[language]) {
     notFound();
   }
-  
-  const translation = translations[language as keyof typeof translations];
-  
+    
   return (
     <>
       <RainAnimation />
