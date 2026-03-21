@@ -51,7 +51,9 @@ export default async function FaqSectionServer() {
     <section id="faq" className={styles.faq}>
       <div className={styles.container}>
         <div className={styles.faqList}>
-          {faqItems.map((item, index) => (
+          {faqItems.map((item, index) => {
+            console.log(item);
+            return (
             <div key={index} className={styles.faqItem}>
               <details className={styles.faqDetails}>
                 <summary className={styles.faqQuestion}>
@@ -62,7 +64,7 @@ export default async function FaqSectionServer() {
                 </div>
               </details>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>
