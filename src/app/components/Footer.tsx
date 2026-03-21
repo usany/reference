@@ -4,7 +4,6 @@ import styles from '../root.module.css';
 
 interface FooterProps {
   policyText: string;
-  privacyContent: React.ReactNode;
 }
 const Method = () => <>
             <div>
