@@ -10,7 +10,7 @@ interface ButtonGroupProps {
 
 export default function ButtonGroup({ links, language }: ButtonGroupProps) {
   return (
-    <div className={`${styles.buttonGroup}`}>
+    <div className={styles.buttonGroup}>
       {links[language].map((link: LinkItem, index: number) => (
         <Button key={index} href={link.href} variant='outlined' className={'colorOne'}>
           <div className={styles.buttonContent}>
