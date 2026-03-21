@@ -1,7 +1,13 @@
-import HomePage from '@/components/shared/HomePage';
 import { Translation } from '@/types/page';
 import { notFound } from 'next/navigation';
-
+import styles from '../root.module.css';
+import links from 'links';
+import RainAnimation from '@/components/RainAnimation';
+import FaqSectionServer from '../FaqSectionServer';
+import HeroSection from '../components/HeroSection';
+import ButtonGroup from '../components/ButtonGroup';
+import HeroVisual from '../components/HeroVisual';
+import Footer from '../components/Footer';
 const privacyContent = {
   ko: <>
             <div>
@@ -178,10 +184,15 @@ export default async function LanguagePage({ params }: { params: { lang: string 
   const method = privacyContent[language as keyof typeof privacyContent];
   
   return (
-    <HomePage 
-      translation={translation}
-      language={language as 'ko' | 'en'}
-      privacyContent={method}
-    />
+    <>
+      <RainAnimation />
+      <HeroSection title={translation.title} subtitle={translation.subtitle} />
+      <ButtonGroup links={links} language={language} />
+      <section className={styles.heroContent}>
+        <HeroVisual />
+        <FaqSectionServer />
+      </section>
+      <Footer policyText={translation.policy} privacyContent={privacyContent} />
+    </>
   );
 }
