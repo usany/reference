@@ -12,7 +12,6 @@ export default function TopBar() {
   const [showLinks, setShowLinks] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { setLanguage } = useLanguage();
   const pathname = usePathname();
   const router = useRouter();
   
@@ -36,7 +35,6 @@ export default function TopBar() {
 
   const toggleLanguage = () => {
     const targetLanguage = language === 'en' ? 'ko' : 'en';
-    setLanguage(targetLanguage);
     router.push(`/${targetLanguage}`);
   };
 
