@@ -2,11 +2,6 @@ import { translations } from '@/FaqSectionServer';
 import styles from '../root.module.css';
 import { getLanguage } from '@/hooks/useServerTheme';
 
-interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-}
-
 export default async function HeroSection() {
   const language = await getLanguage();
   const title = translations[language].title;

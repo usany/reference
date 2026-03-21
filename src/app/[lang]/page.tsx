@@ -64,7 +64,7 @@ export default async function LanguagePage({ params }: { params: { lang: string 
   return (
     <>
       <RainAnimation />
-      <HeroSection title={translation.title} subtitle={translation.subtitle} />
+      <HeroSection />
       <ButtonGroup />
       <section className={styles.heroContent}>
         <HeroVisual />
