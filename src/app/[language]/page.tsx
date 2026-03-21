@@ -52,7 +52,7 @@ export const translations: Record<string, Translation> = {
 };
 
 export default async function LanguagePage({ params }: { params: { lang: string } }) {
-  const language = params.lang;
+  const language = params.language;
   
   // Validate language
   if (!translations[language]) {
