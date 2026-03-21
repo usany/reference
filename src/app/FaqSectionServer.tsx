@@ -52,7 +52,6 @@ export default async function FaqSectionServer() {
       <div className={styles.container}>
         <div className={styles.faqList}>
           {faqItems.map((item, index) => {
-            console.log(item);
             return (
             <div key={index} className={styles.faqItem}>
               <details className={styles.faqDetails}>
