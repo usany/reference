@@ -3,10 +3,6 @@ import { useState } from 'react';
 import styles from '../root.module.css';
 import { getLanguage } from '@/hooks/useServerTheme';
 import { translations } from '@/FaqSectionServer';
-
-interface FooterProps {
-  policyText: string;
-}
 const Method = () => <>
             <div>
               쿠우산KHUSAN은 다음의 목적을 위하여 개인정보를 처리합니다.

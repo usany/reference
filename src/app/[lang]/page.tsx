@@ -70,7 +70,7 @@ export default async function LanguagePage({ params }: { params: { lang: string 
         <HeroVisual />
         <FaqSectionServer />
       </section>
-      <Footer policyText={translation.policy} />
+      <Footer />
     </>
   );
 }
