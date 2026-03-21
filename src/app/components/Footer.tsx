@@ -66,7 +66,7 @@ const Method = () => <>
             </div>
           </>;
 
-export default function Footer({ policyText, privacyContent }: FooterProps) {
+export default function Footer({ policyText }: FooterProps) {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   return (
