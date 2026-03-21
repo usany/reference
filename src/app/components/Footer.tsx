@@ -69,7 +69,7 @@ const Method = () => <>
 
 export default async function Footer() {
   const language = await getLanguage();
-  const policyText = translations[language].policyText;
+  const policyText = translations[language].policy;
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   return (
