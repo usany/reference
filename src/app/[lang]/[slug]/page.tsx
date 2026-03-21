@@ -5,9 +5,9 @@ import SlugLayout from './components/SlugLayout';
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: { slug: string }
 }) {
-  const { slug } = await params
+  const slug = params.slug
   const possibleLinks = ['docs', 'register', 'registers', 'status', 'board', 'profile', 'search', 'chat', 'exhibition', 'report', 'platform', 'playlist']
   if (!possibleLinks.includes(slug)) {
     redirect('/')
