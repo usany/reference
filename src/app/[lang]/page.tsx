@@ -174,13 +174,13 @@ export default async function LanguagePage({ params }: { params: { lang: string 
     notFound();
   }
   
-  const translation = translations[language];
-  const method = privacyContent[language];
+  const translation = translations[language as keyof typeof translations];
+  const method = privacyContent[language as keyof typeof privacyContent];
   
   return (
     <HomePage 
       translation={translation}
-      language={language}
+      language={language as 'ko' | 'en'}
       privacyContent={method}
     />
   );
