@@ -8,9 +8,6 @@ import Script from 'next/script';
 import type { Metadata } from 'next';
 import { getCookies } from './hooks/useServerTheme';
 import './globals.css';
-// import RainAnimation from '@/components/RainAnimation';
-// import { cookies } from 'next/headers';
-// import RootPage from './page-server-with-theme';
 
 export const metadata: Metadata = {
   title: 'KHUSAN',
