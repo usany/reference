@@ -2,6 +2,7 @@ import styles from '../root.module.css';
 import { LinkItem, Links } from '@/types/links';
 import { Button } from '@mui/material';
 import { getLanguage } from '@/hooks/useServerTheme';
+import links from 'links';
 
 interface ButtonGroupProps {
   links: Links;
