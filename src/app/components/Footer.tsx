@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react';
 import styles from '../root.module.css';
+import { getLanguage } from '@/hooks/useServerTheme';
+import { translations } from '@/FaqSectionServer';
 
 interface FooterProps {
   policyText: string;
@@ -65,7 +67,9 @@ const Method = () => <>
             </div>
           </>;
 
-export default function Footer({ policyText }: FooterProps) {
+export default async function Footer() {
+  const language = await getLanguage();
+  const policyText = translations[language].policyText;
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   return (
