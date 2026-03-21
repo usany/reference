@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import styles from './TopBar.module.css';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import links from 'links';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { useTheme } from '@/app/context/ThemeContext';
@@ -12,8 +12,9 @@ export default function TopBar() {
   const [showLinks, setShowLinks] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { language, toggleLanguage } = useLanguage();
+  const { language } = useLanguage();
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -28,6 +29,11 @@ export default function TopBar() {
 
   const toggleDarkMode = () => {
     toggleTheme();
+  };
+
+  const toggleLanguage = () => {
+    const targetLanguage = language === 'en' ? 'ko' : 'en';
+    router.push(`/${targetLanguage}`);
   };
 
   return (
