@@ -1,7 +1,6 @@
 import { Translation } from '@/types/page';
 import { notFound } from 'next/navigation';
 import styles from '../root.module.css';
-import links from 'links';
 import RainAnimation from '@/components/RainAnimation';
 import FaqSectionServer from '../FaqSectionServer';
 import HeroSection from '../components/HeroSection';
@@ -181,7 +180,6 @@ export default async function LanguagePage({ params }: { params: { lang: string 
   }
   
   const translation = translations[language as keyof typeof translations];
-  const method = privacyContent[language as keyof typeof privacyContent];
   
   return (
     <>
