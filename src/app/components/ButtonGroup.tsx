@@ -1,14 +1,10 @@
 import styles from '../root.module.css';
-import { LinkItem, Links } from '@/types/links';
+import type { LinkItem } from '@/types/links';
 import { Button } from '@mui/material';
 import { getLanguage } from '@/hooks/useServerTheme';
 import links from 'links';
 
-interface ButtonGroupProps {
-  links: Links;
-}
-
-export default async function ButtonGroup({ links }: ButtonGroupProps) {
+export default async function ButtonGroup() {
   const language = await getLanguage()
   return (
     <div className={styles.buttonGroup}>
