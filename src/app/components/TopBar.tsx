@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import styles from './TopBar.module.css';
 import { usePathname, useRouter } from 'next/navigation';
 import links from 'links';
-import { useLanguage } from '@/app/context/LanguageContext';
 import { useTheme } from '@/app/context/ThemeContext';
 import Link from 'next/link';
 import Image from 'next/image';
