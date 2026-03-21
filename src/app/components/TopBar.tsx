@@ -12,9 +12,12 @@ export default function TopBar() {
   const [showLinks, setShowLinks] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { language, setLanguage } = useLanguage();
+  const { setLanguage } = useLanguage();
   const pathname = usePathname();
   const router = useRouter();
+  
+  // Extract language from URL pathname
+  const language = pathname.startsWith('/en') ? 'en' : pathname.startsWith('/ko') ? 'ko' : 'ko';
 
   useEffect(() => {
     const checkScreenSize = () => {
