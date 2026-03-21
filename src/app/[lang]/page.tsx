@@ -187,12 +187,12 @@ export default async function LanguagePage({ params }: { params: { lang: string 
     <>
       <RainAnimation />
       <HeroSection title={translation.title} subtitle={translation.subtitle} />
-      <ButtonGroup links={links} language={language} />
+      <ButtonGroup links={links} />
       <section className={styles.heroContent}>
         <HeroVisual />
         <FaqSectionServer />
       </section>
-      <Footer policyText={translation.policy} privacyContent={privacyContent} />
+      <Footer policyText={translation.policy} />
     </>
   );
 }
