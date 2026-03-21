@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+main {
+  padding-top: 60px;
+}
 .bg-light-1 {
   background-color: var(--bg-tier-1);
 }

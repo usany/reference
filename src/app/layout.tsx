@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <MuiThemeProvider>
                 <QueryProvider>
                   <TopBar />
-                  <main style={{ paddingTop: '60px' }}>
+                  <main>
                     {children}
                   </main>
                 </QueryProvider>
